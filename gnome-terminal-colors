@@ -1,0 +1,5 @@
+#!/bin/bash
+
+gconftool --type string --set /apps/gnome-terminal/profiles/Profile0/palette "#000000000000:#BDAF665654D0:#38E38FB44356:#9052972D3045:#4D6B7E9FCE04:#98A26E25B1EE:#AB5F731E262E:#AC28B05EA905:#555555555555:#F51D83A36D15:#5067C2A15DFC:#C298C8275ACC:#6E7EA363FFD8:#C5CB8D60E7B2:#D80296754150:#C5E4CA37C2AB"
+gconftool --type string --set /apps/gnome-terminal/profiles/Profile0/foreground_color "#747478787272"
+
