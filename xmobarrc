@@ -1,0 +1,23 @@
+Config 
+  { font = "-misc-fixed-medium-*-*-*-12-*-*-*-*-*-*-*"
+--  font = "xft:DejaVu Sans Mono:pixelsize=12"
+  , bgColor = "black"
+  , fgColor = "grey"
+  , position = Top
+  , lowerOnStart = False
+  , commands = 
+    [ Run Weather "EFTU" ["-t","<station>: <tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 18000
+--  , Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+--  , Run MultiCpu ["-t","Cpu: <total0>% <total1>% <total2>%","-L","3","-H","50","--normal","green","--high","red"] 10
+--  , Run Com "uname" ["-s","-r"] "" 36000
+    , Run Com "mpc" [" | head -n 1"] "" 10
+    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+    , Run StdinReader
+    , Run CommandReader "cpubar" "cpu"
+    , Run CommandReader "netbar" "eth0"
+    ]
+  , sepChar = "%"
+  , alignSep = "}{"
+  , template = "%cpu% %eth0% : %StdinReader% } %mpc% { %EFTU% | <fc=#ee9a00>%date%</fc>"
+--, template = "%cpu% %eth0% | %StdinReader% } %mpc% { <fc=#ee9a00>%date%</fc>| %EFTU% | %uname%"
+  }
