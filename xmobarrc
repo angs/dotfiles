@@ -14,7 +14,7 @@ Config
     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
     , Run StdinReader
     , Run CommandReader "cpubar" "cpu"
-    , Run CommandReader "netbar" "eth0"
+    , Run CommandReader "netbar eth0" "eth0"
     ]
   , sepChar = "%"
   , alignSep = "}{"
