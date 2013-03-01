@@ -1,0 +1,4 @@
+/usr/share/X11/xkb/ sis. tiedostot mitkä pitää vaihtaa
+lisää oma types/default:iin
+vaihda symbols/fi
+/etc/default/keyboard vaihtaa oletusnäppäimistön

@@ -38,6 +38,7 @@ myconf = defaultConfig
 	, workspaces = myWorkspaces
 	, startupHook = startup
 	, keys = myKeys
+	, modMask = mod1Mask
 	, manageHook = composeAll 
 		[ className =? "XBoard" --> doFloat 
 		, stringProperty "WM_WINDOW_ROLE" =? "irssi" --> doShift "9"
@@ -66,7 +67,7 @@ myWorkspaces = map show [1..9 :: Int]
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 		[ ((modMask .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf) -- %! Launch terminal
-		, ((modMask,               xK_semicolon), spawn $ XMonad.terminal conf)
+		, ((modMask,               xK_colon), spawn $ XMonad.terminal conf)
 		, ((modMask,               xK_p     ), spawn "dmenu_run") -- %! Launch dmenu
 		, ((modMask .|. shiftMask, xK_p     ), spawn "gmrun") -- %! Launch gmrun
 		, ((modMask .|. shiftMask, xK_q     ), kill) -- %! Close the focused window
@@ -90,15 +91,15 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 		, ((modMask .|. shiftMask, xK_minus ), sendMessage (IncMasterN (-1))) -- %! Deincrement the number of windows in the master area
 		, ((modMask .|. shiftMask, xK_BackSpace ), io (exitWith ExitSuccess)) -- %! Quit xmonad
 		, ((modMask              , xK_BackSpace ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
-		, ((mod1Mask,              xK_F11   ), 
+		, ((modMask,              xK_F11   ), 
 			spawn "xrandr --output VGA-0 --pos 1080x600 --rotate normal --output DVI-I-1 --auto --pos 0x0 --rotate left")
-		, ((mod1Mask,              xK_F12   ), 
+		, ((modMask,              xK_F12   ), 
 			spawn "xrandr --output VGA-0 --right-of DVI-I-1 --rotate normal --output DVI-I-1 --auto --pos 0x0 --rotate normal")
 		]
 		++
 		-- mod-[1..9] %! Switch to workspace N
 		-- mod-shift-[1..9] %! Move client to workspace N
-		[((m .|. mod1Mask, k), windows $ f i)
+		[((m .|. modMask, k), windows $ f i)
 			| (i, k) <- zip myWorkspaces [xK_exclam, xK_at, xK_numbersign, xK_dollar, xK_percent, xK_ampersand, xK_asciicircum, xK_asterisk, xK_parenleft, xK_parenright]
 			, (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 		++
