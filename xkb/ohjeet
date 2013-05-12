@@ -2,3 +2,9 @@
 lisää oma types/default:iin
 vaihda symbols/fi
 /etc/default/keyboard vaihtaa oletusnäppäimistön
+
+compile: setxkbmap fi -variant dvorak -print | xkbcomp -xkb - testi2.xkb
+use: xkbcomp testi2.xkb $DISPLAY
+
+~/.xsession:
+setxkbmap fi,us -variant dvorak,basic -option grp_led:scroll

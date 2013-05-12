@@ -1,27 +1,12 @@
-function Hae()
-let l:k = input("Hae: ")
-silent exe "!" . "hae " . l:k
-redraw!
-endfunction
-
-function HaeTama()
-let l:k = expand("<cword>")
-let l:k = substitute(l:k, "#", ".", "g")
-silent exe "! hae ^" . l:k . "$"
-redraw!
-endfunction
-
-function Transpose()
-let l:li = line(".")
-let l:co = col(".")
-%!transpose
-call setpos(".", [0, l:co, l:li, 0])
-endfunction
-
+call pathogen#infect()
+call pathogen#helptags()
 set iskeyword=@,48-57,_,192-255,#
 set tabstop=2
 set autoindent
+au Bufenter *.krypto set filetype=krypto
 map <F2> :w <CR> :make <CR><CR>
+map <F3> :prev <CR>
+map <F4> :n <CR>
 map <F5> :!evince %<.pdf & <CR>
 map <F6> :w<CR> :!krypto % <CR>
 map <F7> :!evince %<.svg &<CR>

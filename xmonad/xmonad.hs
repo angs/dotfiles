@@ -24,7 +24,7 @@ startup = screenWorkspace 1 >>= flip whenJust (windows . W.view) >> (windows $ W
 myBar = "xmobar"
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
-myPP = xmobarPP
+myPP = xmobarPP { ppTitle = xmobarColor "green" "" . shorten 120 } 
 
 -- Key binding to toggle the gap for the bar.
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
