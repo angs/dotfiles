@@ -5,6 +5,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.LayoutModifier
 import XMonad.Util.EZConfig (additionalKeys)
 import XMonad.Layout.NoBorders
@@ -37,6 +38,7 @@ myconf = defaultConfig
 	, logHook = dynamicLog
 	, workspaces = myWorkspaces
 	, startupHook = startup
+	, handleEventHook = fullscreenEventHook
 	, keys = myKeys
 	, modMask = mod1Mask
 	, manageHook = composeAll 
@@ -90,11 +92,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 		, ((modMask .|. shiftMask, xK_equal ), sendMessage (IncMasterN 1)) -- %! Increment the number of windows in the master area
 		, ((modMask .|. shiftMask, xK_minus ), sendMessage (IncMasterN (-1))) -- %! Deincrement the number of windows in the master area
 		, ((modMask .|. shiftMask, xK_BackSpace ), io (exitWith ExitSuccess)) -- %! Quit xmonad
+    , ((modMask .|. shiftMask, xK_F7    ), spawn "autoclick")
 		, ((modMask              , xK_BackSpace ), spawn "if type xmonad; then xmonad --recompile && xmonad --restart; else xmessage xmonad not in \\$PATH: \"$PATH\"; fi") -- %! Restart xmonad
-		, ((modMask,              xK_F11   ), 
-			spawn "xrandr --output VGA-0 --pos 1080x600 --rotate normal --output DVI-I-1 --auto --pos 0x0 --rotate left")
-		, ((modMask,              xK_F12   ), 
-			spawn "xrandr --output VGA-0 --right-of DVI-I-1 --rotate normal --output DVI-I-1 --auto --pos 0x0 --rotate normal")
+		, ((modMask,               xK_F11   ), 
+			spawn "xrandr --output VGA-0 --pos 1080x600 --rotate normal --output DVI-D-0 --auto --pos 0x0 --rotate left")
+		, ((modMask,               xK_F12   ), 
+			spawn "xrandr --output VGA-0 --right-of DVI-D-0 --rotate normal --output DVI-D-0 --auto --pos 0x0 --rotate normal")
+		, ((modMask,               xK_KP_Add), spawn "amixer -M -c 0 set Master 3%+")
+		, ((modMask,               xK_KP_Subtract), spawn "amixer -M -c 0 set Master 3%-")
 		]
 		++
 		-- mod-[1..9] %! Switch to workspace N

@@ -109,16 +109,16 @@ key <AB10> { [ z          , Z          , U2124      , NoSymbol         ]  ,  [ G
 key <TLDE> { [ grave      , asciitilde , dead_grave , dead_tilde       ]  ,  [ dead_macron           , dead_iota     , Cyrillic_yu       , Cyrillic_YU       ] };
 
 key.type[Group1]="FOUR_LEVEL";
-key <AE01> { [ exclam       , 1          , dagger       , exclamdown      ] };
-key <AE02> { [ at           , 2          , doubledagger , radical         ] };
-key <AE03> { [ numbersign   , 3          , sterling     , guillemotleft   ] };
-key <AE04> { [ dollar       , 4          , currency     , guillemotright  ] };
-key <AE05> { [ percent      , 5          , U2030        , U2031           ] };
-key <AE06> { [ ampersand    , 6          , NoSymbol     , NoSymbol        ] };
-key <AE07> { [ asciicircum  , 7          , NoSymbol     , dead_circumflex ] };
-key <AE08> { [ asterisk     , 8          , infinity     , U2605           ] };
-key <AE09> { [ parenleft    , 9          , NoSymbol     , NoSymbol        ] };
-key <AE10> { [ parenright   , 0          , elementof    , notelementof    ] };
+key <AE01> { [ 1            , exclam       , dagger       , exclamdown      ] };
+key <AE02> { [ 2            , at           , doubledagger , radical         ] };
+key <AE03> { [ 3            , numbersign   , sterling     , guillemotleft   ] };
+key <AE04> { [ 4            , dollar       , currency     , guillemotright  ] };
+key <AE05> { [ 5            , percent      , U2030        , U2031           ] };
+key <AE06> { [ 6            , ampersand    , NoSymbol     , NoSymbol        ] };
+key <AE07> { [ 7            , asciicircum  , NoSymbol     , dead_circumflex ] };
+key <AE08> { [ 8            , asterisk     , infinity     , U2605           ] };
+key <AE09> { [ 9            , parenleft    , NoSymbol     , NoSymbol        ] };
+key <AE10> { [ 0            , parenright   , elementof    , notelementof    ] };
 key <AE11> { [ bracketleft  , braceleft  , includedin   , U2284           ] };
 key <AE12> { [ bracketright , braceright , U2286        , U2288           ] };
 key <AD11> { [ slash        , question   , U2216        , questiondown    ] };
